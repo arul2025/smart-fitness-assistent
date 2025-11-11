@@ -12,7 +12,7 @@ st.markdown("#### Personalized AI Coaching for Young Athletes")
 
 # Load Gemini API key (stored securely in Streamlit Secrets)
 # Add this in Streamlit Cloud -> Settings -> Secrets -> GCP_API_KEY = "your_api_key_here"
-api_key = st.secrets["GCP_API_KEY"]
+api_key = st.secrets[GCP_API_KEY]
 genai.configure(api_key=api_key)
 
 # ----------------------------
