@@ -1,23 +1,22 @@
 import streamlit as st
 import google.generativeai as genai
+import os
 import pandas as pd
 
-# ----------------------------
-# CONFIGURE GEMINI 1.5 API
-# ----------------------------
 st.set_page_config(page_title="CoachBot A - Smart Fitness Assistant", page_icon="💪")
 
 st.title("💪 CoachBot A - Smart Fitness Assistant")
 st.markdown("#### Personalized AI Coaching for Young Athletes")
 
-# Load Gemini API key (stored securely in Streamlit Secrets)
-# Add this in Streamlit Cloud -> Settings -> Secrets -> GCP_API_KEY = "your_api_key_here"
- 
-genai.configure(api_key="AIzaSyDj1wNAWvAB5GcbKa657dUGeXlnIMLGR88")
+# ✅ SAFE API KEY HANDLING
+api_key = st.secrets.get("GCP_API_KEY", os.getenv("GCP_API_KEY"))
 
-# ----------------------------
-# SIDEBAR USER INPUTS
-# ----------------------------
+if not api_key:
+    st.error("⚠️ Gemini API key not found. Please add it in Streamlit Secrets or as an environment variable.")
+    st.stop()
+else:
+    genai.configure(api_key=api_key)
+
 with st.sidebar:
     st.header("🏋️‍♂️ Athlete Profile")
     sport = st.selectbox("Select your sport:", ["Football", "Cricket", "Basketball", "Athletics", "Hockey"])
