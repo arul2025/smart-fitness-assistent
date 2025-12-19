@@ -61,7 +61,7 @@ Keep the tone encouraging and youth-friendly.
 # ----------------------------
 if st.button("Generate My Fitness Plan 🧠"):
     try:
-        model = genai.GenerativeModel("gemini-2.5-pro")
+        model = genai.GenerativeModel("gemini-2.0-flash-001")
         response = model.generate_content(prompt, generation_config={"temperature": temperature})
 
         st.subheader("🏆 Your Personalized Fitness Plan")
