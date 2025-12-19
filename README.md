@@ -1,5 +1,6 @@
 # smart-fitness-assistent
 # 💪 CoachBot A – Smart Fitness Assistance Web App
+https://arul2025.github.io/smart-fitness-assistent/
 
 ### Overview
 CoachBot A is a **Generative AI-powered fitness assistant** that delivers customized training, nutrition, and recovery guidance for young athletes.  
